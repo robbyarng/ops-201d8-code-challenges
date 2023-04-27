@@ -8,33 +8,24 @@
 #                               followed by the text “This is the login history”.
 
 # Declaration of variables
-# cat /var/log/auth.log | grep Accepted | awk '{print $1,$2,$3,$9}'
+# cat /var/log/auth.log | grep Accepted | awk '{print}'
 # prints successful logins.
 
 # Declaration of functions
-# cat /var/log/auth.log | grep Accepted | awk '{print $1,$2,$3,$9}'
+# cat /var/log/auth.log | grep Accepted | awk '{print}'
 # prints successful logins.
 
 # Main
 
-cat /var/log/auth.log | grep Accepted | awk '{print}'
-
+logfunc () {
+    cat /var/log/auth.log | grep Accepted | awk '{print}'
 var="This is the login history."
-
 echo "$var"
+}
 
-cat /var/log/auth.log | grep Accepted | awk '{print}'
-
-var="This is the login history."
-
-echo "$var"
-
-cat /var/log/auth.log | grep Accepted | awk '{print}'
-
-var="This is the login history."
-
-echo "$var"
-
+logfunc
+logfunc
+logfunc
 
 
 # End
