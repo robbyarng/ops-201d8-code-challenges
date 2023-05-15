@@ -1,42 +1,42 @@
 #!/bin/bash
 
-# Script Name:                  Create Directory
-# Author:                       Robert C
-# Date of latest revision:      05/01/2023
+# Script Name:                  Create Directory createdir.sh
+# Author:                       Robert C 
+# Date of latest revision:      05/01/2023 
 # Purpose:                      Create a script that detects if a file or directory exists, 
 #                               then creates it if it does not exist.
 #                               Your script must use at least one array, 
 #                               one loop, and one conditional.
 
-# Declaration of variables
-#               readarray : Read lines from the standard input into the indexed array variable
-# Declaration of functions
 
 
-# Main
+# Declaration of variables 
 
 
-readarray -d '' arr < <(ls -d)
-if ! [ $arr = 0 ] ; then
 
-mkdir -p ~/chal06/dir01/
-fi
+# Declaration of functions 
 
-cd ~/chal06/dir01/
 
-baseDir=~/dir01/
-readarray -d '' arr1 < <(ls)
-if ! [ "$arr1" = 0 ] ; then
 
-touch dir.txt
-fi
+# Main 
 
-numbers='1 2 3'
-for number in $numbers
+
+# Array of files/directories to check
+files=("file.txt" "dir1" "dir2")
+
+# Loop through each file/directory in the array
+for file in "${files[@]}"
 do
-echo $number
+  # Check if the file/directory exists
+  if [ ! -e "$file" ]; then
+    # If it doesn't exist, create it
+    echo "Creating $file"
+    mkdir "$file"
+  else
+    echo "$file already exists"
+  fi
 done
 
-echo PRESTO
+
 
 # End

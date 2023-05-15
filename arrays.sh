@@ -8,28 +8,30 @@
 #                               Put the names of the four directories in an array;
 #                               References the array variable to create a new .txt file in each directory
 
+
+
 # Declaration of variables
+
+
 
 # Declaration of functions
 
 
+
 # Main
 
-folders=(dir1 dir2 dir3 dir4)
-folders2=".txt"
-folders3="dir"$folders2
 
-for folder in ${folders[@]}; do
-    mkdir -p ~/chal04/$folder
-done
 
-cd ~/chal04
+# Create the four directories
+mkdir dir1 dir2 dir3 dir4
 
-baseDir=~/chal04/
-readarray -d '' arr < <(find "${baseDir}" -mindepth 1 -maxdepth 1 -type d -print0)
+# Put the directory names in an array
+directories=("dir1" "dir2" "dir3" "dir4")
 
-for directory in ${arr[@]}; do
-   touch $directory/$folders3
+# Loop through the array and create a new .txt file in each directory
+for directory in "${directories[@]}"
+do
+  touch "$directory/new_file.txt"
 done
 
 
